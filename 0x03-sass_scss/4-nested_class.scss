@@ -1,0 +1,9 @@
+/* 4- Nested class */
+$dgrey : #3D3D3D;
+$redd: #FF0000;
+body{
+    color: $dgrey;
+    .red{
+        color: $redd;
+    }
+}

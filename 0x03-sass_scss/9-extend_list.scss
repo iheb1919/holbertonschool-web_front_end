@@ -1,0 +1,14 @@
+/* 9. Extended */
+$redd: #FF0000;
+$lgreen: #00FF00;
+.info {
+    font-size: 12px;
+}
+.success {
+    @extend .info;
+    color: $lgreen;
+}
+.warning {
+    @extend .info;
+    color: $redd;
+}

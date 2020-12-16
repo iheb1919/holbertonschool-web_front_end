@@ -1,0 +1,9 @@
+/* 6. Nested hover */
+$redd: #FF0000;
+$lgreen: #00FF00;
+button {
+    color : $redd;
+    &:hover {
+        color: $lgreen ;
+    }
+}
