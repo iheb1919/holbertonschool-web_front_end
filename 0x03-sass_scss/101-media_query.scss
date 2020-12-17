@@ -1,2 +1,11 @@
 /* 14. Media query #0 */
-
+$h1-font: 20px;
+$small-font: 14px;
+h1 {
+	font-size: $h1-font;
+	@media screen and (max-width: 320px){
+		& {
+			font-size: $small-font;
+		}
+	}
+}

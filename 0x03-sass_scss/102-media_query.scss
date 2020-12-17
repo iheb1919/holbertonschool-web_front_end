@@ -1,0 +1,16 @@
+/* 15. Media query #1 */
+h1 {
+	font-size: 20px;
+	@each $size-width ,$size-font in (960px , 18px),(640px, 16px),(320px, 14px) {
+		@media screen and (max-width: $size-width) {
+			& {
+				font-size: $size-font;
+				@if $size-width == 320px {
+					&.small {
+						color: #1D1D1D;
+					}
+				}
+			}
+		}
+	}
+}
