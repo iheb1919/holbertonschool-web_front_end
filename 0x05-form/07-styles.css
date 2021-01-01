@@ -823,7 +823,7 @@ input:not(:placeholder-shown) ~ .form-field-icon::after {
   }
   .form-search input[type=search] {
       display: inline-block;
-      color: var(--color-white);
+      color: var(--color-green);
       padding-right: 2rem;
       height: 3rem;
       border: 0;
