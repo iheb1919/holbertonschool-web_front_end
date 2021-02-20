@@ -17,4 +17,4 @@ function processOrder(itemName,callbackPayment,callbackError) {
 
 }
 let prompt = window.prompt("Please enter the item you would like to purchase (Macbook, iPhone)");
-processOrder(prompt, processPayment, processError);
+processOrder(prompt.toLowerCase(), processPayment, processError);
