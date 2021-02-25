@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="application/javascript">
+         function setCookies() {
+            let firstname = "firstname=" + document.getElementById("firstname").value;
+            let email = "email=" + document.getElementById("email").value;
+            let date = new Date();
+            date.setDate(date.getDate() + 10);
+            firstname += "; expires=" + date.toUTCString() + "; path=/";
+            email += "; expires=" + date.toUTCString() + "; path=/"
+            document.cookie = firstname;
+            document.cookie = email;
+            
+        }
+        function showCookies() {
+            console.log(document.cookie+"eeeeeeee");
+            let cookies =  document.cookie.split(";");
+            let p = document.createElement("p");
+            let txt = document.createTextNode("Email: " + getCookie("email") + " - Firstname: " + getCookie("firstname"));
+            p.appendChild(txt);
+            document.body.appendChild(p);
+            console.log(document.cookie);
+        }
+        function getCookie(name) {
+            let cookies = document.cookie.split(";");
+            for (let index = 0; index < 2; index++) {
+                let j = cookies[index].split("=");
+                console.log(j);
+                if (j[0].trim() === name.trim()) {
+                    return j[1];
+                }  
+            }
+            return "";
+        }
+    </script>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <input id="firstname" type="text">
+    <input id ="email" type="email">
+    <button onclick="setCookies()">Log me in</button>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+
+    
+</body>
+</html>

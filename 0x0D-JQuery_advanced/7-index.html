@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+      
+
+    </head>
+
+    <body>
+        <script type="application/javascript">
+            $(document).ready(function(){
+                function createSearchForm() {
+                    $('body').append('<input type="text"></input>');
+                    $(':text').after('<input type="submit"></input>');
+                    $(':submit').click(function() {
+                       let str = $('input').first().val();
+                       queryWikipedia(str);
+                    });
+                    $('body').append('<ul></ul>'); 
+                    let l = $('<li> </li>');
+                    l.append('<p><span>'+id + ' - ', b+'</span></p>');
+                    l.append('<p></p>');
+                    $('p').append(snippet);
+                    $('ul').append(l);
+                      
+                }
+                function addNewArticle(id,title,snippet) {
+                    let l = $('<li> </li>');
+                    l.append('<p><span></span></p>');
+                    l.append('<p></p>');
+                    $('p').append(snippet);
+                    $('ul').append(l);
+                }
+                function queryWikipedia(search) {
+                    var url = "https://en.wikipedia.org/w/api.php"; 
+
+                    var params = {
+                        action: "query",
+                        list: "search",
+                        srsearch: search,
+                        format: "json"
+                    };
+                    url = url + "?origin=*";
+                    Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+                    $.get(url, function(data) {
+                         data.query.search.forEach(item => {
+                         addNewArticle(item.pageid, item.title, item.snippet);
+                        })
+                     })
+
+                }
+                createSearchForm();
+                });
+                
+        </script>
+    </body>
+
+</html>
